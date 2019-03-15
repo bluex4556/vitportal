@@ -28,7 +28,7 @@
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
-    creates table users
+    //creates table users
     $sql = "CREATE TABLE users(
         userid int(6) unsigned auto_increment primary key,
         regno varchar(10) not null,
@@ -57,6 +57,25 @@
     {
         echo "Error Creating table " . $conn->error;
     }
+    
+    //creates table users
+    $sql = "CREATE TABLE events(
+        eventid int(6) unsigned auto_increment primary key,
+        userid int(6) unsigned not null,
+        eventname varchar(30) not null,
+        eventdesc text,
+        duration float(3,1),
+        dt date,
+        eventtype ENUM('formal','informal'),
+        FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE ON UPDATE CASCADE
+        )";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Table events created successfully <br>";
+    } else {
+        echo "Error creating table: " . $conn->error ."<br>";
+    }
+
 
     $conn->close();
 ?>
