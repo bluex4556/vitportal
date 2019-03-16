@@ -1,0 +1,62 @@
+.posts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.post{
+    border: 1px solid gray;
+    padding: 5px;
+    margin: 9px;
+}
+.post-title{
+    text-align:center;
+    padding: 2px;
+    margin: 0;
+    border-bottom: gray 1px solid;
+}
+.post-title>h3{
+    margin: 2px;
+    font-size: 1.2em;
+
+}
+.post-details{
+    text-align: right;
+    font-size: 0.6em;
+}
+.post-content{
+    padding: 5px;
+}
+
+h1{
+    border-bottom: 1px solid ;
+    padding: 15px;
+    
+}
+.navbar{
+    text-decoration: none;
+    display: block;
+}
+.navbar>li{
+    list-style: none;
+    display: inline;
+    float: right;
+
+}
+.navbar>li>a{
+    text-decoration: none;
+    display: inline;
+    border: 1px green solid;
+    border-radius: 3px;
+    padding: 5px;
+    text-align: center;
+    color: green;
+
+
+}
+.navbar>li>a:hover{
+    background-color: green;
+    color: white;
+}
+.navbar>li>a:visited{
+    text-decoration: none;
+}

@@ -8,9 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Vit Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='style.css'>
 </head>
 <body>
-    <ul>
+    <ul class='navbar'>
         <?php 
         if (!isset($_SESSION['userid'])) {
             echo "<li><a href='login.php'>Login</a></li>
