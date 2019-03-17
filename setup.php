@@ -76,6 +76,23 @@
         echo "Error creating table: " . $conn->error ."<br>";
     }
 
+    $sql = "CREATE TABLE faculty(
+        facultyid int(6) unsigned auto_increment primary key,
+        fname varchar(30) not null,
+        frole varchar(30) not null,
+        dept varhar(10) not null,
+        campus varchar(15) not null,
+        rating int default 0 not null
+        )";
+    
+    if ($conn->query($sql) === TRUE) 
+    {
+        echo "Table events created successfully <br>";
+    } 
+    else 
+    {
+        echo "Error creating table: " . $conn->error ."<br>";
+    }
 
     $conn->close();
 ?>

@@ -1,0 +1,96 @@
+SCSE,chennai
+Dr.Geetha S,Professor
+Dr.Asha S,Associate Professor
+Dr.Rajesh Kanna B,Associate Professor
+Dr. Viswanathan V,Associate Professor
+Dr.Maheswari N,Professor
+Dr.Bharadwaja Kumar,Associate Professor
+Dr.Ganesan R,Associate Professor
+Dr.Parvathi R,Associate Professor
+Dr.Pattabiraman V,Associate Professor
+Dr.Jagadeesh Kannan R,Professor
+Dr.Janaki Meena M,Professor
+Dr.Jegannathan L,Professor
+Dr.Nagaraj S V,Professor
+Dr.Nayeemulla Khan,Professor
+Dr.Nithyanandam P,Professor
+Dr.Syed Ibrahim S P,Professor
+Prof.Alok Chauhan,Associate Professor
+Dr.Asnath Victy Phamila Y,Associate Professor
+Dr.Jayaram B,Associate Professor
+Dr.Jenila Livingston L M,Associate Professor
+Dr.Justus S,Associate Professor
+Dr.Karmel A,Associate Professor
+Dr.Kumar R,Associate Professor
+Dr.Malathi G,Associate Professor
+Dr.Maheswari R,Associate Professor
+Dr. Neela Narayanan V,Associate Professor
+Dr. Priyadarshini J,Associate Professor
+Dr. Rajalakshmi R,Associate Professor
+Prof. Rajesh Kumar,Associate Professor
+Dr. Renta Chintala Bhargavi,Associate Professor
+Dr. Renuka Devi S,Associate Professor
+Dr. Saleena B,Associate Professor
+Dr. Sandhya P,Associate Professor
+Dr. Sivabalakrishnan M,Associate Professor
+Dr.	Shyamala L,Associate Professor
+Prof. Sridhar R,Associate Professor
+Dr.Sathis Kumar B.,Associate Professor
+Dr. Umamaheswari E,Associate Professor
+Dr. Vishnu Priya R,Associate Professor
+Dr. Pradeep Kumar T S,Associate Professor
+Dr. Nithya Darisini  P.S,Associate Professor
+Dr. Sivagami   M,Associate Professor
+Prof. Premalatha M,Assistant Professor (SG)
+Dr. Prabhakar Rao B V A N S S,Assistant Professor (SG)
+Prof. Prassanna J,Assistant Professor (SG)
+Prof. Rabindra Kumar Singh,Assistant Professor (SG)
+Prof. Sajidha S A,Assistant Professor (SG)
+Prof. Shridevi S,Assistant Professor (SG)
+Prof. Sharath Kumar Jagannathan,Assistant Professor (SG)
+Dr. Sweetlin Hemalatha C,Assistant Professor (SG)
+Prof. Thomas Abraham J V,Assistant Professor (SG)
+Dr. Anusha K,Assistant Professor (Sr)
+Prof. Appalaraju Muralidhar,Assistant Professor (Sr)
+Prof. Bharathi Raja S,Assistant Professor (Sr)
+Dr. Ganapathy S,Assistant Professor (Sr)
+Prof. Harini S,Assistant Professor (Sr)
+Prof. Hema N,Assistant Professor (Sr)
+Dr. Hepsiba Mabel V,Assistant Professor (Sr)
+Prof. Ilakiyaselvan N,Assistant Professor (Sr)
+Prof. Jayasudha M,Assistant Professor (Sr)
+Prof. Kanchana Devi V,Assistant Professor (Sr)
+Prof. Maheswari S,Assistant Professor (Sr)
+Prof. Nachiyappan S,Assistant Professor (Sr)
+Prof.Nisha  V.M,Assistant Professor (Sr)
+Dr.Poongodi M,Assistant Professor (Sr)
+Prof.Prabakaran R,Assistant Professor (Sr)
+Prof.Priyaadharshini M,Assistant Professor (Sr)
+Prof.Punitha K,Assistant Professor (Sr)
+Prof.	Rajarajeswari S,Assistant Professor (Sr)
+Prof.	Rajesh M,Assistant Professor (Sr)
+Prof.	Rajkumar S,Assistant Professor (Sr)
+Prof.	Ramesh Ragala,Assistant Professor (Sr)
+Dr.	Rekha D,Assistant Professor (Sr)
+Dr.	Reshmi T R,Assistant Professor (Sr)
+Dr.	Rukmani P,Assistant Professor (Sr)
+Prof.	Shola Usha Rani,Assistant Professor (Sr)
+Dr.	Suganya G,Assistant Professor (Sr)
+Prof.	Tulasi Prasad Sariki,Assistant Professor (Sr)
+Prof.Umitty Srinivasa Rao	,Assistant Professor (Sr)
+Prof.	Vijayalakshmi A,Assistant Professor (Sr)
+Prof.	Abdul Quadir Md,Assistant Professor
+Prof.	Anusooya G,Assistant Professor
+Prof.	Christy Jackson J,Assistant Professor
+Prof.	Gayathri R,Assistant Professor
+Prof.	Geetha M,Assistant Professor
+Prof.	Graceline Jasmine S,Assistant Professor
+Prof.	Jayanthi R,Assistant Professor
+Prof.	Kavya Alluru,Assistant Professor
+Prof.	Khadar Nawas K,Assistant Professor
+Prof.	Nivedita M,Assistant Professor
+Prof.	Pradeep K V,Assistant Professor
+Prof.	Prakash B,Assistant Professor
+Prof.	Rajiv Vincent,Assistant Professor
+Prof.	Sathyarajasekaran K,Assistant Professor
+Prof.	Vergin Raja Sarobin M,Assistant Professor
