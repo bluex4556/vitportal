@@ -67,5 +67,7 @@
     $conn->close();
 ?>
 
+<a href="postcreate.php">Add post</a>
+
 
 <?php include 'inc/footer.php'; ?>

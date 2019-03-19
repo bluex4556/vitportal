@@ -2,7 +2,7 @@
 <h1>Events</h1>
 <?php
     require('config/db.php');
-    $sql= "SELECT events.eventid, events.eventname, events.eventdesc,events.duration, events.dt,events.eventtype, users.regno FROM events INNER JOIN users on events.userid = users.userid ORDER BY dt DESC LIMIT 10";
+    $sql= "SELECT eventid, eventname, eventdesc, duration,dt,eventtype,regno FROM events  INNER JOIN users on events.userid = users.userid WHERE dt>=CURDATE() ORDER BY dt DESC LIMIT 10 " ;
     $result = $conn->query($sql);
     if($result->num_rows>0)
     {   echo "<div class='events'>";
@@ -48,5 +48,6 @@
     $conn->close();
 
 ?>
-
+<br>
+<a href="eventcreate.php">Add event</a>
 <?php include 'inc/footer.php'; ?>

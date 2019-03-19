@@ -19,7 +19,7 @@
         $sql = "INSERT INTO events(userid,eventname,eventdesc,duration,dt,eventtype) VALUES('$userid','$name','$desc',$dur,'$date','$type')";
         if($conn->query($sql)==TRUE)
         {
-            header('Location: index.php');
+            header('Location: events.php');
         }
         else
         {
