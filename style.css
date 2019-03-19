@@ -35,12 +35,14 @@ h1{
 .navbar{
     text-decoration: none;
     display: block;
+    /* position: relative; */
 }
 .navbar>li{
     list-style: none;
     display: inline;
-    float: right;
-
+    /* position: relative;
+    right: 0px; */
+    float: left;
 }
 .navbar>li>a{
     text-decoration: none;
@@ -59,4 +61,13 @@ h1{
 }
 .navbar>li>a:visited{
     text-decoration: none;
+}
+
+.post-title>h3> a {
+    text-decoration: none;
+}
+.post-title>h3>a:visited{
+    text-decoration: none;
+    color: black;
+
 }

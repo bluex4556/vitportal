@@ -47,7 +47,7 @@
            echo sprintf("
            <div class='post' id ='%s'>
            <div class='post-title'>
-           <h3> %s </h3>
+           <h3><a href='postdetail.php?postid=%s'>  %s </a> </h3>
            <div class='post-details'>
             %s - %s
             </div> 
@@ -56,7 +56,7 @@
             %s
            </div>
            </div>
-           ",$postid,$title,$regno,$convertdt, $content);
+           ",$postid,$postid,$title,$regno,$convertdt, $content);
         }
         echo "</div>";
     }
@@ -66,5 +66,6 @@
     }
 
 ?>
+
 
 <?php include 'inc/footer.php'; ?>

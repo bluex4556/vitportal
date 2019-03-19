@@ -3,6 +3,10 @@
     $dbusername = "root";
     $dbpassword = "";
     $dbname = "myDB";
+
+    date_default_timezone_set("Asia/Kolkata");
+    echo "Timezone is: ". date_default_timezone_get();
+    
     //starting a connection for creating a database 
     $conn = new mysqli($servername,$dbusername, $dbpassword);
     
@@ -93,6 +97,26 @@
     {
         echo "Error creating table: " . $conn->error ."<br>";
     }
+
+    $sql = "CREATE TABLE postcomments(
+        commentid int(6) unsigned auto_increment primary key,
+        userid int(6) unsigned not null,
+        postid int(6) not null,
+        content text,
+        dt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,        
+        FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (postid) REFERENCES posts(postid) ON DELETE CASCADE ON UPDATE CASCADE
+     )";
+
+    if ($conn->query($sql) === TRUE) 
+    {
+        echo "Table events created successfully <br>";
+    } 
+    else 
+    {
+        echo "Error creating table POSTCOMMENTS: " . $conn->error ."<br>";
+    }
+
 
     $conn->close();
 ?>

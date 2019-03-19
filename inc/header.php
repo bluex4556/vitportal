@@ -22,3 +22,5 @@
         }
         ?>
     </ul>    
+
+    <div class="content">
