@@ -12,6 +12,8 @@
 </head>
 <body>
     <ul class='navbar'>
+        <li><a href="faculty.php">Faculty</a></li>
+        <li><a href="events.php">Events</a></li>
         <?php 
         if (!isset($_SESSION['userid'])) {
             echo "<li><a href='login.php'>Login</a></li>
@@ -22,5 +24,5 @@
         }
         ?>
     </ul>    
-
+        <br>
     <div class="content">
