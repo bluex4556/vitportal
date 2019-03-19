@@ -27,7 +27,7 @@
         {
             echo "error creating post ".$sql."<br>" . $conn->error;
         }
-    
+        $conn->close();
     }
 ?>
 <?php include 'inc/header.php'; ?>

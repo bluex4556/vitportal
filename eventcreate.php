@@ -1,6 +1,7 @@
 <?php require('inc/loginrequire.php'); ?>
 <?php
-    if ($_SERVER['REQUEST_METHOD']=="POST") {
+    if ($_SERVER['REQUEST_METHOD']=="POST") 
+    {
         $name = $_POST['eventname'];
         $desc = $_POST['eventdesc'];
         $dur = $_POST['duration'];
@@ -24,7 +25,9 @@
         {
             echo "error creating post ".$sql."<br>" . $conn->error;
         }
+        $conn->close();
     }
+    
 ?>
 
 

@@ -64,7 +64,7 @@
     {
         echo "0 Results";
     }
-
+    $conn->close();
 ?>
 
 

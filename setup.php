@@ -7,7 +7,7 @@
     date_default_timezone_set("Asia/Kolkata");
     echo "Timezone is: ". date_default_timezone_get();
     
-    //starting a connection for creating a database 
+    // starting a connection for creating a database 
     $conn = new mysqli($servername,$dbusername, $dbpassword);
     
     //If error abort
@@ -26,7 +26,7 @@
         echo "error creating database: ".$conn->error;
     }
 
-    //connection for creating tables in database
+    // //connection for creating tables in database
     $conn = new mysqli($servername, $dbusername, $dbpassword,$dbname);
     
     if ($conn->connect_error) {
@@ -117,7 +117,22 @@
         echo "Error creating table POSTCOMMENTS: " . $conn->error ."<br>";
     }
 
-
+    $sql= "CREATE TABLE facultycomments(
+        commentid int(6) unsigned auto_increment primary key,
+        userid int(6) unsigned not null,
+        facultyid int(6) unsigned not null,
+        content text,
+        FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (facultyid) REFERENCES faculty(facultyid) ON DELETE CASCADE ON UPDATE CASCADE
+        )";
+    if ($conn->query($sql) === TRUE) 
+    {
+        echo "Table events created successfully <br>";
+    } 
+    else 
+    {
+        echo "Error creating table POSTCOMMENTS: " . $conn->error ."<br>";
+    }
     $conn->close();
 ?>
 

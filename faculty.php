@@ -17,8 +17,7 @@
            echo sprintf("
            <div class='faculty' id ='%s'>
            <div class='faculty-name'>
-           <h3> %s </h3>
-           <div class='faculty-rating'>
+           <h3><a href='facultydetail.php?facultyid=%s'>  %s </a> </h3>           <div class='faculty-rating'>
             Rating: %s
             </div> 
            </div>
@@ -26,7 +25,7 @@
             %s
            </div>
            </div>
-           ",$facultyid,$name,$rating,$role);
+           ",$facultyid,$facultyid,$name,$rating,$role);
         }
         echo "</div>";
     }
@@ -34,6 +33,7 @@
     {
         echo "0 Results";
     }
+    $conn->close();
 
 ?>
 

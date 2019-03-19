@@ -3,16 +3,16 @@
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
         $content = $_POST['commentcontent'];
-        $postid = $_POST['postid'];
+        $facultyid = $_POST['facultyid'];
         $userid = $_SESSION['userid'];
 
         require('config/db.php');
         $content  = mysqli_escape_string($conn, $content);
-        $sql = "INSERT INTO postcomments (userid,postid,content) VALUES ('$userid','$postid', '$content')";
+        $sql = "INSERT INTO facultycomments (userid,facultyid,content) VALUES ('$userid','$facultyid', '$content')";
         if($conn->query($sql)== TRUE)
-        {
+        {    
             $conn->close();
-            header('Location: postdetail.php?postid='.$postid);
+            header('Location: facultydetail.php?facultyid='.$facultyid);
         }
         else
             echo "Something went wrong. Please try again later";
