@@ -12,7 +12,7 @@
 </head>
 <body>
     <ul class='navbar'>
-        <li><a href="index.php">Home</a></li>
+        <li><a href="index.php" class='btn btn-success'>Home</a></li>
         <li><a href="faculty.php">Faculty</a></li>
         <li><a href="events.php">Events</a></li>
         <?php 

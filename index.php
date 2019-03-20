@@ -45,18 +45,19 @@
            $dt = $row['dt'];           
            $convertdt = time_elapsed_string($dt);
            echo sprintf("
-           <div class='post' id ='%s'>
-           <div class='post-title'>
+           <div class='container card' id ='%s'>
+           <div class='card-title'>
            <h3><a href='postdetail.php?postid=%s'>  %s </a> </h3>
-           <div class='post-details'>
-            %s - %s
-            </div> 
+          
            </div>
-           <div class = 'post-content'>
+           <div class = 'card-body'>
             %s
            </div>
+           <div class='card-footer'>
+           %s - %s
+           </div> 
            </div>
-           ",$postid,$postid,$title,$regno,$convertdt, $content);
+           ",$postid,$postid,$title, $content,$regno,$convertdt);
         }
         echo "</div>";
     }
