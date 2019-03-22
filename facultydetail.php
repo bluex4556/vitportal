@@ -28,11 +28,8 @@
         Location: %s
         </div>
         </div>
-        <div class = 'faculty-rating'>
-        %s
         </div>
-        </div>
-        ",$facultyid,$fname,$frole,$dept,$campus, $rating);
+        ",$facultyid,$fname,$frole,$dept,$campus);
         echo "</div>";
     }
     else
@@ -65,17 +62,18 @@
         }
         echo "</div>";
     }
-    else
-    {
-        echo "no comments";
-    }
     $conn->close();
-?>
+    $userid = substr($_SESSION['userid'],3);
+    if ($facultyid == $userid) 
+    {
+        echo '
+        <form action="facultycommentcreate.php" method="post">
+            <textarea name="commentcontent" cols="40" rows="10"></textarea>
+            <input type="hidden" name="facultyid" value="<?php echo $facultyid; ?>">
+            <input type="submit">
+        </form>';    
+    }
 
-<form action="facultycommentcreate.php" method="post">
-    <textarea name="commentcontent" cols="40" rows="10"></textarea>
-    <input type="hidden" name="facultyid" value="<?php echo $facultyid; ?>">
-    <input type="submit">
-</form>
+?>
 
 <?php include 'inc/footer.php' ?>

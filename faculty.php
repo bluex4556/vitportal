@@ -17,15 +17,13 @@
            echo sprintf("
            <div class='faculty' id ='%s'>
            <div class='faculty-name'>
-           <h3><a href='facultydetail.php?facultyid=%s'>  %s </a> </h3>           <div class='faculty-rating'>
-            Rating: %s
-            </div> 
+           <h3><a href='facultydetail.php?facultyid=%s'>  %s </a> </h3>           
            </div>
            <div class = 'faculty-role'>
             %s
            </div>
            </div>
-           ",$facultyid,$facultyid,$name,$rating,$role);
+           ",$facultyid,$facultyid,$name,$role);
         }
         echo "</div>";
     }
