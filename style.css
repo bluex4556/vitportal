@@ -28,23 +28,29 @@
 
 .btn{
     padding: 5px;
+    text-decoration: none;
     text-align:center;
     display: block;
     margin: 2px;
     color: blue;
-    border-radius: 2px;
+    border-radius: 3px;
     border: 1px blue;
 }
 .btn:hover{
     color: white ;
-    background-color: blue;
+    background-color:blue  ;
 }
 .btn-success{
     color: green;
+    background-color: white;
     border: 1px green;
 
 }
 .btn-success:hover{
-    color: green;
+    color: white;
+    background-color: green;
     border: 1px green;
+}
+.navbar{
+    display: inline;
 }

@@ -33,7 +33,7 @@
     
     $postid = $_GET['postid'];
     require ('config/db.php');
-    $sql = "SELECT postid,regno,title,dt,content FROM posts INNER JOIN users on posts.userid = users.userid where postid = '$postid'";
+    $sql = "SELECT postid,regno,title,dt,content,posts.userid FROM posts INNER JOIN users on posts.userid = users.userid where postid = '$postid'";
     $result = $conn->query($sql);
     if($result->num_rows>0)
     {      
@@ -42,6 +42,7 @@
         $postid= $row['postid'];
         $regno = $row['regno'];
         $title = $row['title'];
+        $userid = $row['userid'];
         $content = $row['content'];
         $dt = $row['dt'];           
         $convertdt = time_elapsed_string($dt);
@@ -59,6 +60,11 @@
         </div>
         ",$postid,$title,$regno,$convertdt, $content);
         echo "</div>";
+
+        if(isset($_SESSION['userid']) && $userid==$_SESSION['userid'])
+        {
+            echo "<a href='postupdate.php?postid=".$postid."'>Update Post</a> ";
+        }
     }
     else
     {
