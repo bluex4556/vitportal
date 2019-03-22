@@ -47,11 +47,13 @@
 
     $sql = "CREATE TABLE posts(
         postid int(6) auto_increment primary key,
-        userid int(6) unsigned not null,
+        userid int(6) unsigned DEFAULT NULL,
+        facultyid int(6) unsigned DEFAULT NULL,
         title varchar(100) NOT NULL,
         content text,
         dt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,        
-       FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE ON UPDATE CASCADE
+        FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (facultyid) REFERENCES faculty(facultyid) ON DELETE CASCADE ON UPDATE CASCADE
     )";
     if($conn->query($sql) == TRUE)
     {
@@ -65,13 +67,16 @@
     //creates table users
     $sql = "CREATE TABLE events(
         eventid int(6) unsigned auto_increment primary key,
-        userid int(6) unsigned not null,
+        userid int(6) unsigned DEFAULT NULL,
+        facultyid int(6) unsigned DEFAULT NULL,
         eventname varchar(30) not null,
         eventdesc text,
+        venue varchar(10) not null,
         duration float(3,1),
         dt date,
         eventtype ENUM('formal','informal'),
-        FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE ON UPDATE CASCADE
+        FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (facultyid) REFERENCES faculty(facultyid) ON DELETE CASCADE ON UPDATE CASCADE
         )";
 
     if ($conn->query($sql) === TRUE) {
@@ -100,12 +105,13 @@
 
     $sql = "CREATE TABLE postcomments(
         commentid int(6) unsigned auto_increment primary key,
-        userid int(6) unsigned not null,
-        postid int(6) not null,
+        userid int(6) unsigned DEFAULT NULL,
+        facultyid int(6) unsigned DEFAULT NULL,
         content text,
         dt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,        
         FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE ON UPDATE CASCADE,
-        FOREIGN KEY (postid) REFERENCES posts(postid) ON DELETE CASCADE ON UPDATE CASCADE
+        FOREIGN KEY (postid) REFERENCES posts(postid) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (facultyid) REFERENCES faculty(facultyid) ON DELETE CASCADE ON UPDATE CASCADE
      )";
 
     if ($conn->query($sql) === TRUE) 
@@ -133,7 +139,46 @@
     {
         echo "Error creating table POSTCOMMENTS: " . $conn->error ."<br>";
     }
+    
+
+    $sql = "CREATE TABLE courses(
+        courseno varchar(10) primary key,
+        coursetitle varchar(40) not null,
+        credits int(1) not null
+    )";
+
+    if ($conn->query($sql) === TRUE) 
+    {
+        echo "Table events created successfully <br>";
+    } 
+    else 
+    {
+        echo "Error creating table POSTCOMMENTS: " . $conn->error ."<br>";
+    }
+    $sql= "CREATE TABLE coursecomments(
+        commentid int(6) unsigned auto_increment primary key,
+        userid int(6) unsigned DEFAULT NULL,
+        facultyid int(6) unsigned DEFAULT NULL,
+        courseno varchar(10) not null,
+        content text,
+        FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (courseno) REFERENCES courses(courseno) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (facultyid) REFERENCES faculty(facultyid) ON DELETE CASCADE ON UPDATE CASCADE
+        )";
+    if ($conn->query($sql) === TRUE) 
+    {
+        echo "Table events created successfully <br>";
+    } 
+    else 
+    {
+        echo "Error creating table POSTCOMMENTS: " . $conn->error ."<br>";
+    }
+
+
+    
     $conn->close();
+
+
 ?>
 
 

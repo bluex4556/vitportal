@@ -17,21 +17,20 @@
         {
 
             $password= test_input($_POST['password']);
-            $regno= strtoupper(trim(test_input($_POST['regno'])));   //remove spaces and makes lower case characters to upper
+            $facultyname= strtolower(trim(test_input($_POST['facultyname'])));   //remove spaces and makes lower case characters to upper
             
             require('config/db.php');  //establishes connection to the DB with $conn
             $password = mysqli_real_escape_string($conn,$password);  //escapes special characters 
-            $regno = mysqli_real_escape_string($conn,$regno);
+            $facultyname = mysqli_real_escape_string($conn,$facultyname);
 
-            $sql= "SELECT userid, regno FROM users WHERE regno = '$regno' and password = '$password'";  //gets all rows with same regno
+            $sql= "SELECT facultyid, facultyname FROM facultylogin WHERE facultyname = '$facultyname' and password = '$password'";  //gets all rows with same facultyname
             
             $result= $conn->query($sql);
             if($result->num_rows==1)
             {
                 $row = $result->fetch_assoc();
                 //set session variable
-                $_SESSION['userid'] = $row['userid'];
-                //Checks if user was redirected to login from another page
+                $_SESSION['userid'] = 'fac'. $row['facultyid'];
                 if(isset($_SESSION['redirect']))
                 {
                     header('Location: ' . $_SESSION['redirect']);
@@ -58,17 +57,15 @@
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        /* the text transform to upper in the input makes the placeholder transform to uppercase too. This reverses that */
         input::placeholder{
             text-transform :none;
         }
     </style>
 </head>
 <body>
-<h1>Login</h1>
+<h1>Faculty login</h1>
     <form method="POST">        
-        <input type="text" name="regno" id="regno" placeholder="Register no" style="text-transform: uppercase;"> <!-- transforms the input into uppercase -->
-        <!-- displays the error -->
+        <input type="text" name="facultyname" id="facultyname" placeholder="Faculty name" style="text-transform: lowercase;"> <!-- transforms the input into uppercase -->
         <span class="error">*<?php echo $regerr; ?></span>  
         <br>
         <br>
@@ -77,6 +74,6 @@
         <br>
         <input type="submit">
     </form>
-<a href="facultylogin.php">Faculty Login</a>
+<a href="login.php">Student Login</a>
 </body>
 </html>

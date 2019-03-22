@@ -2,7 +2,7 @@
 <h1>Events</h1>
 <?php
     require('config/db.php');
-    $sql= "SELECT eventid, eventname, eventdesc, duration,dt,eventtype,regno FROM events  INNER JOIN users on events.userid = users.userid WHERE dt>=CURDATE() ORDER BY dt DESC LIMIT 10 " ;
+    $sql= "SELECT eventid, eventname, eventdesc, duration,dt,eventtype,regno FROM events  INNER JOIN users on events.userid = users.userid WHERE dt>=CURDATE() UNION SELECT eventid, eventname, eventdesc, duration,dt,eventtype,fname FROM events  INNER JOIN faculty on events.userid = faculty.facultyid WHERE dt>=CURDATE() ORDER BY dt DESC LIMIT 10 " ;
     $result = $conn->query($sql);
     if($result->num_rows>0)
     {   echo "<div class='events'>";

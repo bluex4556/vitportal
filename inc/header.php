@@ -17,7 +17,8 @@
         <li><a href="events.php">Events</a></li>
         <?php 
         if (!isset($_SESSION['userid'])) {
-            echo "<li><a href='login.php'>Login</a></li>
+            echo "<li><a href='facultylogin.php'>Faculty Login</a></li>
+            <li><a href='login.php'>Login</a></li>
             <li><a href='signup.php'>Signup</a></li>" ;
         }
         else {

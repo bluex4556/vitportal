@@ -4,6 +4,7 @@
     {
         $name = $_POST['eventname'];
         $desc = $_POST['eventdesc'];
+        $venue = $_POST['venue'];
         $dur = $_POST['duration'];
         $date = $_POST['eventdate'];
         $type = $_POST['type'];
@@ -16,7 +17,15 @@
         $date = mysqli_real_escape_string($conn,$date);
         $type = mysqli_real_escape_string($conn,$type);
 
-        $sql = "INSERT INTO events(userid,eventname,eventdesc,duration,dt,eventtype) VALUES('$userid','$name','$desc',$dur,'$date','$type')";
+        if(substr($userid,0,3)=="fac")
+        {
+            $userid = substr($userid,3);
+            $sql = "INSERT INTO events(facultyid,eventname,eventdesc,venue,duration,dt,eventtype) VALUES($userid,'$name','$desc','$venue',$dur,'$date','$type')";
+        }
+        else
+        {
+            $sql = "INSERT INTO events(userid,eventname,eventdesc,venue,duration,dt,eventtype) VALUES('$userid','$name','$desc','$venue',$dur,'$date','$type')";
+        }
         if($conn->query($sql)==TRUE)
         {
             header('Location: events.php');
@@ -36,6 +45,8 @@
         <input type="text" name="eventname" placeholder="event name">
         <br>
         <textarea name="eventdesc" rows="10" placeholder="event description"></textarea>
+        <br>
+        <input type="text" name="venue" placeholder="venue">
         <br>
         <input type="text" name="duration" placeholder="duration">
         <br>
