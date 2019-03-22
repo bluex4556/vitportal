@@ -75,7 +75,7 @@
     // Comments
 
     require('config/db.php');
-    $sql= "SELECT commentid, content, dt, regno FROM postcomments INNER JOIN users on postcomments.userid = users.userid WHERE postid='$postid' ORDER BY dt DESC LIMIT 10";
+    $sql= "SELECT commentid, content, dt, regno FROM postcomments INNER JOIN users on postcomments.userid = users.userid WHERE postid='$postid' union SELECT commentid, content, dt, fname FROM postcomments INNER JOIN faculty on postcomments.facultyid = faculty.facultyid WHERE postid='$postid' ORDER BY dt DESC LIMIT 10";
     $result = $conn->query($sql);
     if($result->num_rows>0)
     {   echo "<div class='comments'>";

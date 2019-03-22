@@ -8,7 +8,15 @@
 
         require('config/db.php');
         $content  = mysqli_escape_string($conn, $content);
-        $sql = "INSERT INTO postcomments (userid,postid,content) VALUES ('$userid','$postid', '$content')";
+        if(substr($userid,0,3)=="fac")
+        {
+            $userid = substr($userid,3);
+            $sql = "INSERT INTO postcomments(facultyid,postid,content) VALUES($userid,'$postid','$content')";
+        }
+        else
+        {
+            $sql = "INSERT INTO postcomments(userid,postid,content) VALUES('$userid','$postid','$content')";
+        }
         if($conn->query($sql)== TRUE)
         {
             $conn->close();
