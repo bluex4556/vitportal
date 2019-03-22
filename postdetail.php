@@ -33,7 +33,7 @@
     
     $postid = $_GET['postid'];
     require ('config/db.php');
-    $sql = "SELECT postid,regno,title,dt,content,posts.userid FROM posts INNER JOIN users on posts.userid = users.userid where postid = '$postid'";
+    $sql = "SELECT postid,regno,title,dt,content,posts.userid FROM posts INNER JOIN users on posts.userid = users.userid where postid = '$postid' union SELECT postid,fname,title,dt,content,posts.facultyid FROM posts INNER JOIN faculty on posts.facultyid = faculty.facultyid where postid = '$postid'";
     $result = $conn->query($sql);
     if($result->num_rows>0)
     {      

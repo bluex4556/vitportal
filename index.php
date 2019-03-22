@@ -32,7 +32,7 @@
     }
         
     require('config/db.php');
-    $sql= "SELECT posts.postid, posts.title, posts.content, posts.dt, users.regno FROM posts INNER JOIN users on posts.userid = users.userid ORDER BY dt DESC LIMIT 10";
+    $sql= "SELECT postid,title,content,dt,regno FROM posts INNER JOIN users on posts.userid = users.userid union SELECT postid, title, content,dt, fname FROM posts INNER JOIN faculty on posts.facultyid = faculty.facultyid ORDER BY dt DESC LIMIT 10";
     $result = $conn->query($sql);
     if($result->num_rows>0)
     {   echo "<div class='posts'>";
@@ -58,6 +58,7 @@
            </div> 
            </div>
            ",$postid,$postid,$title, $content,$regno,$convertdt);
+           $regno = "";
         }
         echo "</div>";
     }

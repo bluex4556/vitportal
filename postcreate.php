@@ -17,8 +17,15 @@
 
         $title = mysqli_real_escape_string($conn,$title);
         $content = mysqli_real_escape_string($conn,$content);
-
-        $sql = "INSERT INTO posts(userid,title,content) values('$userid','$title','$content')";
+        if(substr($userid,0,3)=="fac")
+        {
+            $userid = substr($userid,3);
+            $sql = "INSERT INTO posts(facultyid,title,content) VALUES($userid,'$title','$content')";
+        }
+        else
+        {
+            $sql = "INSERT INTO posts(userid,title,content) VALUES('$userid','$title','$content')";
+        }
         if($conn->query($sql)==TRUE)
         {
             header('Location: index.php');
