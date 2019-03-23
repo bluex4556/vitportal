@@ -9,12 +9,14 @@
         die("Connection failed: " . $conn->connect_error);
     } 
 
-    $sql = "CREATE TABLE facultylogin(
+    $sql = "CREATE TABLE facultytimetable(
         facultyid int(6) unsigned auto_increment primary key,
-        facultyname varchar(25) not null,
-        password varchar(25) not null,
-        FOREIGN KEY (facultyid) REFERENCES faculty(facultyid) ON DELETE CASCADE ON UPDATE CASCADE,
-        UNIQUE KEY (facultyname)
+        mon varchar(15) DEFAULT NULL,
+        tue varchar(15) DEFAULT NULL,
+        wed varchar(15) DEFAULT NULL,
+        thu varchar(15) DEFAULT NULL,
+        fri varchar(15) DEFAULT NULL,
+        FOREIGN KEY (facultyid) REFERENCES faculty(facultyid) ON DELETE CASCADE ON UPDATE CASCADE
     )";
 
 if ($conn->query($sql) === TRUE) 

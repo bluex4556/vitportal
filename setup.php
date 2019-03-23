@@ -51,7 +51,8 @@
         facultyid int(6) unsigned DEFAULT NULL,
         title varchar(100) NOT NULL,
         content text,
-        dt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,        
+        dt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        campus varchar(30) DEFAULT NULL,        
         FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE ON UPDATE CASCADE,
         FOREIGN KEY (facultyid) REFERENCES faculty(facultyid) ON DELETE CASCADE ON UPDATE CASCADE
     )";
@@ -175,6 +176,22 @@
     }
 
 
+    $sql = "CREATE TABLE facultylogin(
+        facultyid int(6) unsigned auto_increment primary key,
+        facultyname varchar(25) not null,
+        password varchar(25) not null,
+        FOREIGN KEY (facultyid) REFERENCES faculty(facultyid) ON DELETE CASCADE ON UPDATE CASCADE,
+        UNIQUE KEY (facultyname)
+    )";
+
+if ($conn->query($sql) === TRUE) 
+{
+    echo "Table events created successfully <br>";
+} 
+else 
+{
+    echo "Error creating table POSTCOMMENTS: " . $conn->error ."<br>";
+}
     
     $conn->close();
 
