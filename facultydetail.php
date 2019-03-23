@@ -78,8 +78,14 @@
     }
     $_SESSION['redirect'] = $_SERVER['REQUEST_URI'];
     $userid = substr($_SESSION['userid'],3);
-    if($facultyid == $userid)echo "<a href='facultyedit.php'>Edit Venue and Time Table</a>";
-
+    if($facultyid == $userid)
+    {
+        echo "<br><form method='POST' action='facultyedit.php'>
+            <input type='submit' value='Edit Venue and Time Table'>
+            <input type='hidden' name='facultyid' value='$facultyid'>
+            </form>
+            ";
+    }
     // // Comments
     echo "<br><br><h2>Faculty Comment</h2>";
 
