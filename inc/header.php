@@ -11,20 +11,24 @@
     <link rel='stylesheet' href='style.css'>
 </head>
 <body>
-    <ul class='navbar'>
-        <li><a href="index.php" class='btn btn-success'>Home</a></li>
+
+
+    <ul class='navbar' >
+        <li><a href="index.php" >Home</a></li>
         <li><a href="faculty.php">Faculty</a></li>
-        <li><a href="events.php">Events</a></li>
+        <li><a href="events.php" >Events</a></li>
         <?php 
         if (!isset($_SESSION['userid'])) {
-            echo "<li><a href='facultylogin.php'>Faculty Login</a></li>
-            <li><a href='login.php'>Login</a></li>
-            <li><a href='signup.php'>Signup</a></li>" ;
+            echo "
+            <li class='float-right'><a href='facultylogin.php' >Faculty Login</a></li>
+            <li class='float-right'><a href='login.php'>Login</a></li>
+            <li class='float-right'><a href='signup.php'>Signup</a></li>" ;
         }
         else {
-            echo "<li><a href='logout.php'>Logout</a></li>";           
+            echo "<li class='float-right'><a href='logout.php'>Logout</a></li>";           
         }
         ?>
     </ul>    
+</div>
         <br>
     <div class="content">

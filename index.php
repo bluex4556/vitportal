@@ -34,6 +34,7 @@
     require('config/db.php');
     $sql= "SELECT postid,title,content,dt,regno FROM posts INNER JOIN users on posts.userid = users.userid union SELECT postid, title, content,dt, fname FROM posts INNER JOIN faculty on posts.facultyid = faculty.facultyid ORDER BY dt DESC LIMIT 10";
     $result = $conn->query($sql);
+    echo "<a href='postcreate.php' class='btn btn-success'>Add post</a>";
     if($result->num_rows>0)
     {   echo "<div class='posts'>";
         while($row = $result->fetch_assoc())
@@ -69,7 +70,6 @@
     $conn->close();
 ?>
 
-<a href="postcreate.php">Add post</a>
 
 
 <?php include 'inc/footer.php'; ?>
