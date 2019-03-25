@@ -19,7 +19,7 @@
             <h3><a href='coursedetail.php?courseno=%s'>%s</a></h3>           
             </div>
             <div class = 'course-credits'>%s</div>
-           </div>
+           </div><br>
            ",$courseno,$courseno,$coursetitle,$credits);
         }
         echo "</div>";
@@ -31,5 +31,5 @@
     $conn->close();
 
 ?>
-
+<a href="coursecreate.php">Add a course</a>
 <?php include 'inc/footer.php'; ?>

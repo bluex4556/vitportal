@@ -15,6 +15,7 @@
         <li><a href="index.php" class='btn btn-success'>Home</a></li>
         <li><a href="faculty.php">Faculty</a></li>
         <li><a href="events.php">Events</a></li>
+        <li><a href="courses.php">Courses</a></li>
         <?php 
         if (!isset($_SESSION['userid'])) {
             echo "<li><a href='facultylogin.php'>Faculty Login</a></li>
