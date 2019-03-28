@@ -1,5 +1,7 @@
 <?php include 'inc/header.php'; ?>
-<h1>Faculty SCSE chennai</h1>
+<div class="heading">
+Faculty SCSE chennai
+</div>
 <?php
         
     require('config/db.php');
@@ -7,7 +9,7 @@
     $sql= "SELECT facultyid,fname,frole,rating FROM faculty WHERE dept='SCSE' AND campus LIKE 'chennai%' ";
     $result = $conn->query($sql);
     if($result->num_rows>0)
-    {   echo "<div class='faculties'>";
+    {   echo "<div class='posts'>";
         while($row = $result->fetch_assoc())
         {   
            $facultyid= $row['facultyid'];
@@ -15,14 +17,16 @@
            $role = $row['frole'];
            $rating = $row['rating'];           
            echo sprintf("
-           <div class='faculty' id ='%s'>
-           <div class='faculty-name'>
-           <h3><a href='facultydetail.php?facultyid=%s'>  %s </a> </h3>           
+            <a href='facultydetail.php?facultyid=%s'> 
+           <div class='container card' id ='%s'>
+           <div class='card-title'>
+           <h3> %s  </h3>           
            </div>
-           <div class = 'faculty-role'>
+           <div class = 'card-body'>
             %s
            </div>
            </div>
+           </a>
            ",$facultyid,$facultyid,$name,$role);
         }
         echo "</div>";

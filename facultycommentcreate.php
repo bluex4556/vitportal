@@ -15,6 +15,10 @@
             header('Location: facultydetail.php?facultyid='.$facultyid);
         }
         else
+        {
             echo "Something went wrong. Please try again later";
+            echo $conn->error;
+
+        }
     }
 ?>

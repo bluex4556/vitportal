@@ -4,7 +4,8 @@
     function getfree($week)
     {
         echo("
-            <table border=1px>
+        <div class='container'>
+            <table border=1px class='center' style='width:80%'>
             <tr>
                 <th>Days</th>
                 <th>8:00 - 8:50</th>
@@ -34,7 +35,7 @@
             }
             echo "</td>";
         }
-        echo "</table>";
+        echo "</table></div>";
 
     }
     $facultyid = $_GET['facultyid'];
@@ -55,21 +56,43 @@
         $week = array('monday'=>$row['mon'],'tuesday'=>$row['tue'],'wednesday'=>$row['wed'],'thursday'=>$row['thu'],'friday'=>$row['fri']); 
 
         echo sprintf("
-        <div class='faculty' id ='%s'>
-        <div class='faculty-name'>
+        <div class='container card' id ='%s' style='width:50%%;margin: auto'>
+        <div class='card-title'>
         <h3>  %s</h3>
-        <div class='faculty-role'>
+        </div>
+        <div class='card-body'>
+        Dept: %s
+        <br>
+        Location: %s
+        <br>
+        cabin: %s
+        <br>
+        </div>
+        <div class='card-footer'>
         %s
         </div>
-        <div class='faculty-location'>
-        Dept: %s
-        Location: %s
-        cabin: %s
         </div>
         </div>
-        </div>
-        ",$facultyid,$fname,$frole,$dept,$campus,$cabin);
+        <br>
+        <br>
+        <br>
+        ",$facultyid,$fname,$dept,$campus,$cabin,$frole);
         echo "</div>";
+    if(isset($_SESSION['userid']))
+    {
+
+        $userid = substr($_SESSION['userid'],3);
+    if($facultyid == $userid)
+    {
+        echo "<br><form method='POST' action='facultyedit.php' >
+        <div class='center' style='width:10%;margin-bottom: 30px;'>
+            <input type='submit' value='Edit Venue and Time Table' >
+            </div>
+            <input type='hidden' name='facultyid' value='$facultyid'>
+            </form>
+            ";
+    }
+    }
         getfree($week);
     }
     else
@@ -77,22 +100,27 @@
         echo "0 Results";
     }
     $_SESSION['redirect'] = $_SERVER['REQUEST_URI'];
-    $userid = substr($_SESSION['userid'],3);
-    if($facultyid == $userid)
-    {
-        echo "<br><form method='POST' action='facultyedit.php'>
-            <input type='submit' value='Edit Venue and Time Table'>
-            <input type='hidden' name='facultyid' value='$facultyid'>
-            </form>
-            ";
-    }
     // // Comments
-    echo "<br><br><h2>Faculty Comment</h2>";
+    echo "<br><br><h2 class='heading'>Faculty Comment</h2>";
+    if(isset($_SESSION['userid']))
+    {
+    if ($facultyid == $userid) 
+    {
+        echo '
+        <form action="facultycommentcreate.php" method="post">
+        <div class="center">
+            <textarea name="commentcontent" cols="40" rows="2"></textarea>
+            <input type="hidden" name="facultyid" value="<?php echo $facultyid; ?>">
+        <input type="submit" class="btn btn-success" style="float:right;">
+            </div>
+        </form>';    
+    }
+}
 
     $sql= "SELECT commentid, content, regno FROM facultycomments INNER JOIN users on facultycomments.userid = users.userid WHERE facultyid='$facultyid' LIMIT 10";
     $result = $conn->query($sql);
     if($result->num_rows>0)
-    {   echo "<div class='comments'>";
+    {   echo "<div class='container'>";
         while($row = $result->fetch_assoc())
         {   
            $commentid= $row['commentid'];
@@ -111,16 +139,14 @@
         }
         echo "</div>";
     }
-    $conn->close();
-    if ($facultyid == $userid) 
-    {
-        echo '
-        <form action="facultycommentcreate.php" method="post">
-            <textarea name="commentcontent" cols="40" rows="10"></textarea>
-            <input type="hidden" name="facultyid" value="<?php echo $facultyid; ?>">
-            <input type="submit">
-        </form>';    
+    else{
+        echo "
+        <div class='center container' style='margin: 100px;text-align:center'>
+         No comments yet.
+         </div>
+        ";
     }
+    $conn->close();
 
 
 

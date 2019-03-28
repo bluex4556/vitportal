@@ -1,11 +1,14 @@
 <?php include 'inc/header.php'; ?>
-<h1>Events</h1>
+<a href='eventcreate.php' style='font-size:20px;display:inline;margin: 10px;float:right;padding:10px' class='btn btn-success'>Add a Event</a>
+<div class="heading">
+Events
+</div>
 <?php
     require('config/db.php');
     $sql= "SELECT eventid, eventname, eventdesc, duration,dt,eventtype,regno FROM events  INNER JOIN users on events.userid = users.userid WHERE dt>=CURDATE() UNION SELECT eventid, eventname, eventdesc, duration,dt,eventtype,fname FROM events  INNER JOIN faculty on events.userid = faculty.facultyid WHERE dt>=CURDATE() ORDER BY dt DESC LIMIT 10 " ;
     $result = $conn->query($sql);
     if($result->num_rows>0)
-    {   echo "<div class='events'>";
+    {   echo "<div class='posts'>";
         while($row = $result->fetch_assoc())
         {   
            $eventid= $row['eventid'];
@@ -17,23 +20,19 @@
            $type = $row['eventtype'];
 
           echo sprintf("
-           <div class='event' id ='%s'>
-           <div class='event-name'>
+           <div class='container card' id ='%s'>
+           <div class='card-title'>
            <h3> %s </h3>
-           <div class='event-details'>
-            %s - %s
             </div> 
-           </div>
-           <div>
+           <div class='card-body'>
+            %s - %s
+            <br>
             On: %s
-           </div>
-           <div class = 'event-content'>
+            <br>
             %s
            </div>
-           <div class=event-hrs>
+           <div class='card-footer'>
             %s Hrs
-           </div>
-           <div>
             Type: %s 
            </div>
            </div>
@@ -49,5 +48,4 @@
 
 ?>
 <br>
-<a href="eventcreate.php">Add event</a>
 <?php include 'inc/footer.php'; ?>

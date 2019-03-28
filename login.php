@@ -43,7 +43,7 @@
             }
             else
             {
-                echo "error";
+                $regerr = 'No such user exists';
                 echo $result->num_rows;
             }
             $conn->close();
@@ -57,26 +57,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        /* the text transform to upper in the input makes the placeholder transform to uppercase too. This reverses that */
-        input::placeholder{
-            text-transform :none;
-        }
-    </style>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-<h1>Login</h1>
     <form method="POST">        
-        <input type="text" name="regno" id="regno" placeholder="Register no" style="text-transform: uppercase;"> <!-- transforms the input into uppercase -->
-        <!-- displays the error -->
-        <span class="error">*<?php echo $regerr; ?></span>  
-        <br>
-        <br>
-        <input type="password" name="password" id="password" placeholder="Password" required>
-        <span class="error">* <?php echo $passworderr; ?> </span>
-        <br>
-        <input type="submit">
+    <div class="main-box">
+            <h1>Student Login</h1>
+            <div class="data-box">
+                <label for="username:">Regno: &nbsp;
+                    <span class="error" style='color:#ff4500'><?php echo $regerr; ?></span>  
+                </label>
+                <input type="text" name='regno' id='regno' required>
+                <label for="password">Password: &nbsp;
+                    <span class="error" style ='color:#ff4500'> <?php echo $passworderr; ?> </span>
+                </label>
+                <input type="password" name='password' id='password'  required>
+                <br>
+                <br >
+                <input type='button' onclick="window.location.href='facultylogin.php'" class='button' value='Faculty Login' style='float:left;'>
+                <input class="button" type="submit" value="Login">
+            </div>
+        </div> 
     </form>
-<a href="facultylogin.php">Faculty Login</a>
+
 </body>
 </html>

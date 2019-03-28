@@ -56,24 +56,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        input::placeholder{
-            text-transform :none;
-        }
-    </style>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-<h1>Faculty login</h1>
-    <form method="POST">        
-        <input type="text" name="facultyname" id="facultyname" placeholder="Faculty name" style="text-transform: lowercase;"> <!-- transforms the input into uppercase -->
-        <span class="error">*<?php echo $regerr; ?></span>  
-        <br>
-        <br>
-        <input type="password" name="password" id="password" placeholder="Password" required>
-        <span class="error">* <?php echo $passworderr; ?> </span>
-        <br>
-        <input type="submit">
+<form method="POST">        
+    <div class="main-box">
+            <h1>Faculty Login</h1>
+            <div class="data-box">
+                <label for="username:">Faculty Name: &nbsp;
+                    <span class="error" style='color:#ff4500'><?php echo $regerr; ?></span>  
+                </label>
+                <input type="text" name='facultyname' id='facultyname' required>
+                <label for="password">Password: &nbsp;
+                    <span class="error" style ='color:#ff4500'> <?php echo $passworderr; ?> </span>
+                </label>
+                <input type="password" name='password' id='password'  required>
+                <br>
+                <br >
+                <input type='button' onclick="window.location.href='login.php'" class='button' value='Student Login' style='float:left;'>
+                <input class="button" type="submit" value="Login">
+            </div>
+        </div> 
     </form>
-<a href="login.php">Student Login</a>
 </body>
 </html>
