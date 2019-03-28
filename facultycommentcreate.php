@@ -4,11 +4,9 @@
     {
         $content = $_POST['commentcontent'];
         $facultyid = $_POST['facultyid'];
-        $userid = $_SESSION['userid'];
-
         require('config/db.php');
         $content  = mysqli_escape_string($conn, $content);
-        $sql = "INSERT INTO facultycomments (userid,facultyid,content) VALUES ('$userid','$facultyid', '$content')";
+        $sql = "INSERT INTO facultycomments (facultyid,content) VALUES ('$facultyid', '$content')";
         if($conn->query($sql)== TRUE)
         {    
             $conn->close();
@@ -18,6 +16,7 @@
         {
             echo "Something went wrong. Please try again later";
             echo $conn->error;
+            echo $sql;
 
         }
     }

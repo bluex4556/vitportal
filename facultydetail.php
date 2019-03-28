@@ -106,36 +106,34 @@
     {
     if ($facultyid == $userid) 
     {
-        echo '
-        <form action="facultycommentcreate.php" method="post">
-        <div class="center">
-            <textarea name="commentcontent" cols="40" rows="2"></textarea>
-            <input type="hidden" name="facultyid" value="<?php echo $facultyid; ?>">
-        <input type="submit" class="btn btn-success" style="float:right;">
+        echo "
+        <form action='facultycommentcreate.php' method='post'>
+        <div class='center'>
+            <textarea name='commentcontent' cols='40' rows='2'></textarea>
+            <input type='hidden' name='facultyid' value=$facultyid>
+        <input type='submit' class='btn btn-success' style='float:right;'>
             </div>
-        </form>';    
+        </form>";    
+        // echo "$facultyid";
+
     }
 }
 
-    $sql= "SELECT commentid, content, regno FROM facultycomments INNER JOIN users on facultycomments.userid = users.userid WHERE facultyid='$facultyid' LIMIT 10";
+    $sql= "SELECT commentid, content FROM facultycomments WHERE facultyid='$facultyid' LIMIT 10";
     $result = $conn->query($sql);
     if($result->num_rows>0)
     {   echo "<div class='container'>";
         while($row = $result->fetch_assoc())
         {   
            $commentid= $row['commentid'];
-           $regno = $row['regno'];
            $content = $row['content'];
            echo sprintf("
            <div class='comment' id ='%s'>
            <div class = 'comment-content'>
             %s
            </div>
-           <div class='comment-details'>
-           made by: %s 
-           </div> 
            </div>
-           ",$commentid,$content,$regno);
+           ",$commentid,$content);
         }
         echo "</div>";
     }
@@ -147,9 +145,6 @@
         ";
     }
     $conn->close();
-
-
-
 ?>
 
 <?php include 'inc/footer.php' ?>
