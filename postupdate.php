@@ -6,9 +6,7 @@
         $postid =  $_GET['postid'];
         require 'config/db.php';
         $sql = "select postid,title,content from posts where postid=$postid";
-        echo $sql;
         $result = $conn->query($sql);
-        print_r($result);
         if($result->num_rows == 0){
             die();
         }
@@ -17,12 +15,13 @@
             $title = $row['title'];
             $content=$row['content'];
             echo "
+            <div class='center container '>
             <form method='post'>
             <input type='text' name='title' id='title' value='$title'>
             <textarea  name='content' id='content'>$content</textarea>
             <input type='submit'>
             </form>
-             ";
+             </div>";
 
         }
 

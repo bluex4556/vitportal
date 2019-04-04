@@ -42,7 +42,7 @@ Events
     }
     else
     {
-        echo "0 Results";
+        echo "<div class='container  center' style='margin-top: 35px;width:50%;'> No Events Yet</div> ";
     }
     $conn->close();
 

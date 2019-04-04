@@ -65,9 +65,9 @@
             <h1>Student Login</h1>
             <div class="data-box">
                 <label for="username:">Regno: &nbsp;
-                    <span class="error" style='color:#ff4500'><?php echo $regerr; ?></span>  
+                    <span class="error" style='color:#ff4500;text-transform: uppercase;'><?php echo $regerr; ?></span>  
                 </label>
-                <input type="text" name='regno' id='regno' required>
+                <input type="text" name='regno' id='regno' required style='text-transform: uppercase;'>
                 <label for="password">Password: &nbsp;
                     <span class="error" style ='color:#ff4500'> <?php echo $passworderr; ?> </span>
                 </label>

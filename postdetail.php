@@ -63,7 +63,11 @@
 
         if(isset($_SESSION['userid']) && $userid==$_SESSION['userid'])
         {
-            echo "<a href='postupdate.php?postid=".$postid."'>Update Post</a> ";
+            echo "";
+        echo "<div class='center' style='width:10%;margin-bottom: 30px;'>
+        <a class='btn btn-success' href='postupdate.php?postid=".$postid."'>Update Post</a> 
+                </div>
+        ";
         }
     }
     else

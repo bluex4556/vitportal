@@ -37,18 +37,19 @@
     $result = $conn->query($sql);
     if($result->num_rows==1)
     {      
-        echo "<div class='course'>";
+        echo "<div class='posts'>";
         $row = $result->fetch_assoc();
         $courseno= $row['courseno'];
         $coursetitle = $row['coursetitle'];
         $credits = $row['credits'];
         echo sprintf("
-        <div class='course'>
-            <div class='course-no'>%s</div>
-            <div class='course-title'>
+        <div class='container card center'>
+            <div class='card-title'>%s</div>
+            <div class='card-body'>
             <h3>  %s </h3>
             </div> 
-            <div class='course-credits'>
+            <div class='card-footer'>
+            Credits: 
             %s
             </div>
         </div>
@@ -62,7 +63,20 @@
     $_SESSION['redirect'] = $_SERVER['REQUEST_URI'];
 
     // Comments
-    echo "<br><br><h2>Comments</h2>";
+    echo " 
+    <h3 class='heading' style='font-size: 18px;'>
+    Comments
+    </h3>
+";
+?>
+<form action="postcommentcreate.php" method="post">
+    <div class="center">
+    <textarea name="commentcontent" cols="40" rows="2" ></textarea>
+    <input type="submit" class='btn btn-success' style='float:right;'>
+    </div>
+    <input type="hidden" name="postid" value="<?php echo $postid; ?>">
+</form>
+<?php
     require('config/db.php');
     $sql= "SELECT commentid, content, regno FROM coursecomments INNER JOIN users on coursecomments.userid = users.userid WHERE courseno='$courseno' union SELECT commentid, content, fname FROM coursecomments INNER JOIN faculty on coursecomments.facultyid = faculty.facultyid WHERE courseno='$courseno' LIMIT 10";
     $result = $conn->query($sql);
@@ -88,15 +102,10 @@
     }
     else
     {
-        echo "no comments";
+        echo "<div class='container  center' style='margin-top: 35px;width:50%;'> No Comments Yet</div> ";
     }
     $conn->close();
 ?>
 
 
-<form action="coursecommentcreate.php" method="post">
-    <textarea name="commentcontent" cols="40" rows="10"></textarea>
-    <input type="hidden" name="courseno" value="<?php echo $courseno; ?>">
-    <input type="submit">
-</form>
 <?php include 'inc/footer.php' ?>

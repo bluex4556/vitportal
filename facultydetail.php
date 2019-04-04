@@ -87,7 +87,7 @@
         echo "<br><form method='POST' action='facultyedit.php' >
         <div class='center' style='width:10%;margin-bottom: 30px;'>
             <input type='submit' value='Edit Venue and Time Table' >
-            </div>
+        </div>
             <input type='hidden' name='facultyid' value='$facultyid'>
             </form>
             ";
